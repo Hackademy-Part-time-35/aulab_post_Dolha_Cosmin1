@@ -38,4 +38,5 @@ Route::middleware('revisor')->group(function(){
 Route::middleware('writer')->group(function(){
     Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
     Route::post('/article/store', [ArticleController::class, 'store'])->name('article.store');
+    Route::get('/article/store', [ArticleController::class, 'articleSearch'])->name('article.search');
 });

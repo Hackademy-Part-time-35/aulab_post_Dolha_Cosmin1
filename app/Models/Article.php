@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Article extends Model
 {
@@ -19,5 +20,15 @@ class Article extends Model
 
     public function category(){
         return $this->belongsTo(Category::class);
+    }
+
+    public function toSearchableArray(){
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'subtitle' => $this->subtitle,
+            'body' => $this->body,
+            'category' => $this->category,
+        ];
     }
 }
