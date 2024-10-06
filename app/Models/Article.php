@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 
+
 class Article extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     protected $fillable = [
         'title', 'subtitle', 'body', 'image', 'user_id', 'category_id', 'is_accepted'
@@ -31,4 +32,10 @@ class Article extends Model
             'category' => $this->category,
         ];
     }
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
+
+
 }
