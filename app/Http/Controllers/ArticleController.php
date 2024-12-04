@@ -60,7 +60,7 @@ class ArticleController extends Controller implements HasMiddleware
             'user_id' => Auth::user()->id,
             'slug'=>Str::slug($request->title),
         ]);
-
+        dd($article->all());
         $tags = explode(',', $request->tags);
 
         foreach($tags as $i => $tag){
