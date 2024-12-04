@@ -42,25 +42,29 @@ class ArticleController extends Controller implements HasMiddleware
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|unique:articles|min:5',
-            'subtitle' => 'required|min:5',
-            'body' => 'required|min:10',
-            'image' => 'required|image',
-            'category' => 'required',
-            'tags' => 'required'
-        ]);
+        // dd($request->all());
+        // $request->validate([
+        //     'title' => 'required|unique:articles|min:5',
+        //     'subtitle' => 'required|min:5',
+        //     'body' => 'required|min:10',
+        //     'image' => 'required|image',
+        //     'category' => 'required',
+        //     'tags' => 'required'
+        // ]);
 
         $article = Article::create([
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'body' => $request->body,
-            'image' => $request->file('image')->store('public/images'),
+            // funzione di store è stata modificata
+            'image' => $request->file('image')->store('img', 'public'),
             'category_id' => $request->category,
             'user_id' => Auth::user()->id,
+            // va bene solo se il titolo ha una parola nel caso va effettuata la concatenazione con un tattino e on underscore
             'slug'=>Str::slug($request->title),
         ]);
-        dd($article->all());
+        // il dd serve per fare il debug dei dati se lo lasci la funzione si blocca in quel punto non proseguendo nell esecuzione
+        // dd($article->all());
         $tags = explode(',', $request->tags);
 
         foreach($tags as $i => $tag){
