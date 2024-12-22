@@ -1,10 +1,10 @@
 <?php
-
-use App\Http\Controllers\PublicController;
-use App\Http\Controllers\ArticleController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\RevisorController;
+use App\Http\Controllers\PublicController;
 use App\Http\Controllers\WriterController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\RevisorController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 

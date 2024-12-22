@@ -47,6 +47,14 @@
                             <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
+                    {{-- mancava il body dell'articolo --}}
+                    {{-- lo avevi messo come requisito ma mancava come zona di input ergo, errore in creazione dell'articolo e requisiti non soddisfatti --}}
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <textarea name="body" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">scrivi il corpo dell' articolo</label>
+                          </div>
+                    </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <textarea name="body" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
