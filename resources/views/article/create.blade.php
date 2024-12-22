@@ -48,6 +48,12 @@
                         @enderror
                     </div>
                     <div class="mb-3">
+                        <div class="form-floating">
+                            <textarea name="body" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Scrivi il corpo dell' articolo</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
                         <label for="tags" class="form-label">Tags</label>
                         <input type="text" name="tags" class="form-control" id="tags" value="{{old ('tags')}}">
                         <span class="small text-muted fst-italic">Dividi ogni tag con una virgola</span>

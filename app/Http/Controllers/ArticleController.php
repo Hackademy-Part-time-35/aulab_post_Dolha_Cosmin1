@@ -42,6 +42,7 @@ class ArticleController extends Controller implements HasMiddleware
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $request->validate([
             'title' => 'required|unique:articles|min:5',
             'subtitle' => 'required|min:5',
@@ -55,7 +56,7 @@ class ArticleController extends Controller implements HasMiddleware
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'body' => $request->body,
-            'image' => $request->file('image')->store('public/images'),
+            'image' => $request->file('image')->store('img', 'public'),
             'category_id' => $request->category,
             'user_id' => Auth::user()->id,
             'slug'=>Str::slug($request->title),
