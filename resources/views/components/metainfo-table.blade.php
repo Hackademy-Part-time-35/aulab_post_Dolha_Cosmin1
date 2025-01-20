@@ -13,7 +13,7 @@
             <tr>
                 <th scope="row">{{$metaInfo->id}}</th>
                 <td>{{$metaInfo->name}}</td>
-                <td>{{count($metaInfo->$articles)}}</td>
+                <td>{{count($metaInfo->articles)}}</td>
                 @if ($metaType == 'tags')
                 <td>
                     
